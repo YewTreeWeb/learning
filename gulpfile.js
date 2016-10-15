@@ -1,15 +1,21 @@
 /*---------------
 Required
 ---------------*/
-var gulp        = require('gulp'),
+var gulp    = require('gulp'),
 browserSync = require('browser-sync'),
 sass        = require('gulp-sass'),
 prefix      = require('gulp-autoprefixer'),
 cp          = require('child_process'),
 jade        = require('gulp-jade'),
-gulpLoadPlugins = require('gulp-load-plugins');
+uglify      = require('gulp-uglify'),
+rename      = require('gulp-rename'),
+plumber     = require('gulp-plumber'),
+imagemin    = require('gulp-imagemin'),
+concat      = require('gulp-concat'),
+sourcemaps  = require('gulp-sourcemaps'),
+babel       = require('gulp-babel'),
+del         = require('del');
 
-var $ = gulpLoadPlugins();
 var jekyll   = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 var messages = {
   jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
@@ -57,16 +63,16 @@ Styles
 */
 gulp.task('sass', function () {
   return gulp.src(['assests/scss/scss-main.scss', 'assests/sass/sass-main.sass'])
-  .pipe( $.plumber() )
-  .pipe( $.sourcemaps.init() )
+  .pipe( plumber() )
+  .pipe( sourcemaps.init() )
   .pipe( sass({
     //includePaths: ['scss'],
     outputStyle: 'compressed',
     onError: browserSync.notify
-  }).on('error', $.sass.logError) )
+  }).on('error', sass.logError) )
   .pipe( prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }) )
-  .pipe( $.sourcemaps.write() )
-  .pipe( $.rename( {suffix:'.min'} ) )
+  .pipe( sourcemaps.write() )
+  .pipe( rename( {suffix:'.min'} ) )
   .pipe( gulp.dest('_site/css') )
   .pipe( browserSync.reload({stream:true}) )
   .pipe( gulp.dest('css') );
@@ -80,11 +86,12 @@ Scripts
 */
 gulp.task('scripts', function () {
   return gulp.src(['assets/js/**/*.js', '!assets/js/**/*.min.js'])
-  .pipe( $.plumber() )
-  .pipe( $.sourcemaps.init() )
-  .pipe( $.babel() )
-  .pipe( $.sourcemaps.write('.') )
-  .pipe( $.rename( {suffix:'.min'} ) )
+  .pipe( plumber() )
+  .pipe( sourcemaps.init() )
+  .pipe( babel() )
+  .pipe( uglify() )
+  .pipe( rename( {suffix:'.min'} ) )
+  .pipe( sourcemaps.write('.') )
   .pipe( gulp.dest('_site/js') )
   .pipe( browserSync.reload({stream:true}) )
   .pipe( gulp.dest('js') );
@@ -104,7 +111,7 @@ Images
 ---------------*/
 gulp.task('images', function() {
   return gulp.src( 'assets/images/**/*' )
-    .pipe( $.cache( $.imagemin({
+    .pipe( cache( imagemin({
       progressive: true,
       interlaced: true,
       // don't remove IDs from SVGs, they are often used
