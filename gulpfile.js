@@ -111,8 +111,8 @@ gulp.task('images', function() {
       // as hooks for embedding and styling
       svgoPlugins: [{cleanupIDs: false}]
     }) ) )
-    .pipe(gulp.dest( '_site/images') );
-    .pipe(gulp.dest( 'images') );
+    .pipe( gulp.dest('_site/images') )
+    .pipe( gulp.dest('images') );
 });
 
 /*---------------
