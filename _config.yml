@@ -1,4 +1,4 @@
-name: Learning
-markdown: redcarpet
-highlighter: pygments # or rouge or null
+title: Learning
+markdown: kramdown
+highlighter: rouge
 exclude: ["node_modules", "gulpfile.js", "package.json"]

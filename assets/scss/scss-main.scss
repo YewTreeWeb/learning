@@ -1,6 +1,44 @@
-@import "reset";
-@import "syntax";
+/*
+1 - Assets
+    - Reset
+    - Syntax
+    - Bootstrap
+    - Bourbon
+2 - Custom Assets
+    - Custom Mixins
+    - Custom Variables
+    - Layouts
+    - Responsive
+3 - Pages
+    - Homepage
+*/
 
-body {
-    background: white;
-}
+/*------------------------------------
+
+1 - Assets
+
+------------------------------------*/
+
+@import "variables/reset";
+@import "variables/syntax";
+@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+//@import "bower_components/bourbon/app/assets/stylesheets/bourbon";
+
+/*------------------------------------
+
+2 - Custom Assets
+
+------------------------------------
+
+@import "custom-mixins/custom-mixins";
+@import "custom-variables/custom-variables";
+@import "layouts/layouts";
+@import "responsive/responsive";*/
+
+/*------------------------------------
+
+3 - Pages
+
+------------------------------------
+
+@import "pages/pages";*/

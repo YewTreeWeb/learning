@@ -62,7 +62,7 @@ Styles
 * Compile files from _scss into both _site/css (for live injecting) and site (for future jekyll builds)
 */
 gulp.task('sass', function () {
-  return gulp.src(['assests/scss/scss-main.scss', 'assests/sass/sass-main.sass'])
+  return gulp.src(['assets/scss/scss-main.scss', 'assets/sass/sass-main.sass'])
   .pipe( plumber() )
   .pipe( sourcemaps.init() )
   .pipe( sass({
@@ -71,11 +71,11 @@ gulp.task('sass', function () {
     onError: browserSync.notify
   }).on('error', sass.logError) )
   .pipe( prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }) )
-  .pipe( sourcemaps.write() )
+  .pipe( sourcemaps.write('maps') )
   .pipe( rename( {suffix:'.min'} ) )
   .pipe( gulp.dest('_site/css') )
   .pipe( browserSync.reload({stream:true}) )
-  .pipe( gulp.dest('css') );
+  .pipe( gulp.dest('assets/css') );
 });
 
 /*---------------
@@ -84,17 +84,17 @@ Scripts
 /**
 * Compile files from _scss into both _site/css (for live injecting) and site (for future jekyll builds)
 */
-gulp.task('scripts', function () {
+gulp.task('scripts', function() {
   return gulp.src(['assets/js/**/*.js', '!assets/js/**/*.min.js'])
   .pipe( plumber() )
   .pipe( sourcemaps.init() )
   .pipe( babel() )
   .pipe( uglify() )
+  .pipe( sourcemaps.write('maps') )
   .pipe( rename( {suffix:'.min'} ) )
-  .pipe( sourcemaps.write('.') )
   .pipe( gulp.dest('_site/js') )
   .pipe( browserSync.reload({stream:true}) )
-  .pipe( gulp.dest('js') );
+  .pipe( gulp.dest('assets/js') );
 });
 
 /*---------------
@@ -119,7 +119,7 @@ gulp.task('images', function() {
       svgoPlugins: [{cleanupIDs: false}]
     }) ) )
     .pipe( gulp.dest('_site/images') )
-    .pipe( gulp.dest('images') );
+    .pipe( gulp.dest('assets/images') );
 });
 
 /*---------------
