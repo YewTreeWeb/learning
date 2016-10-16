@@ -1,47 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>{{ page.title }}</title>
-  <meta name="viewport" content="width=device-width">
+<!-----------------
+Include header
+------------------>
+{% include head.html %}
+{% include header.html %}
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="/assets/css/scss-main.min.css">
-  <link rel="stylesheet" href="/assets/css/sass-main.min.css">
-
-</head>
-<body>
-
-  <div class="site">
-    <div class="header">
-      <h1 class="title"><a href="/">{{ site.name }}</a></h1>
-      <a class="extra" href="/">home</a>
-    </div>
-
-    {{ content }}
-
-
-    <div class="footer">
-      <div class="contact">
-        <p>
-          Your Name is<br />
-          What You Are<br />
-          you@example.com
-        </p>
+<!-----------------
+Content
+------------------>
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        {{ content }}
       </div>
-      <div class="contact">
-        <p>
-          <a href="https://github.com/yourusername">github.com/yourusername</a><br />
-          <a href="https://twitter.com/yourusername">twitter.com/yourusername</a><br />
-        </p>
-      </div>
-      <script type="text/javascript" src="/assets/bower_components/jquery/dist/jquery.min.js"></script>
-      <script type="text/javascript" src="/assets/bower_components/jquery-migrate/jquery-migrate.min.js"></script>
-      <script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
-      <script type="text/javascript" src="/assets/js/main.js"></script>
     </div>
   </div>
+</div>
+<!-----------------
+End Content
+------------------>
 
-</body>
-</html>
+<!-----------------
+Include Footer
+------------------>
+{% include footer.html %}
+{% include end.html %}

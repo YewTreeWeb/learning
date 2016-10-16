@@ -1,1 +1,1 @@
-{"version":3,"sources":["main.js"],"names":["console","log"],"mappings":"AAAAA,QAAQC,IAAI","file":"../main.js","sourcesContent":["console.log('hello world');\n"]}
+{"version":3,"sources":["main.js"],"names":["console","log"],"mappings":"AAAAA,QAAQC,IAAI,eACZD,QAAQC,IAAI","file":"../main.js","sourcesContent":["console.log('hello world');\nconsole.log('testing');\n"]}

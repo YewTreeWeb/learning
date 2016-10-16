@@ -4,13 +4,6 @@
     - Syntax
     - Bootstrap
     - Bourbon
-2 - Custom Assets
-    - Custom Mixins
-    - Custom Variables
-    - Layouts
-    - Responsive
-3 - Pages
-    - Homepage
 */
 
 /*------------------------------------
@@ -19,26 +12,6 @@
 
 ------------------------------------*/
 
-@import "assets/reset";
 @import "assets/syntax";
 @import "assets/bootstrap/bootstrap";
 @import "assets/bourbon/bourbon";
-
-/*------------------------------------
-
-2 - Custom Assets
-
-------------------------------------
-
-@import "custom-mixins/custom-mixins";
-@import "custom-variables/custom-variables";
-@import "layouts/layouts";
-@import "responsive/responsive";*/
-
-/*------------------------------------
-
-3 - Pages
-
-------------------------------------
-
-@import "pages/pages";*/

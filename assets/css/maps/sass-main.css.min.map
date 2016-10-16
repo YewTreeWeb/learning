@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"../sass-main.css","sourcesContent":[]}
+{"version":3,"sources":["pages/_pages.sass"],"names":[],"mappings":"AAAA,KACE,2BAA6B,CAAG,GAEhC,qBAAuB,CAAG","file":"../sass-main.css","sourcesContent":["body {\n  background: white !important; }\nh1 {\n  color: blue !important; }\n"]}

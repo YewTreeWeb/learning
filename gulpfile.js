@@ -29,7 +29,7 @@ Jekyll
 */
 gulp.task('jekyll-build', function (done) {
   browserSync.notify(messages.jekyllBuild);
-  return cp.spawn( jekyll , ['build'], {stdio: 'inherit'})
+  return cp.spawn( 'jekyll' , ['build'], {stdio: 'inherit'})
   .on('close', done);
 });
 
@@ -46,7 +46,7 @@ BrowserSync
 /**
 * Wait for jekyll-build, then launch the Server
 */
-gulp.task('browser-sync', ['sass', 'scripts', 'jekyll-build'], function() {
+gulp.task('browser-sync', ['sass', 'scripts', 'jade', 'jekyll-build'], function() {
   browserSync({
     server: {
       baseDir: '_site'
@@ -62,7 +62,7 @@ Styles
 * Compile files from _scss into both _site/css (for live injecting) and site (for future jekyll builds)
 */
 gulp.task('sass', function () {
-  return gulp.src(['assets/scss/scss-main.scss', 'assets/sass/sass-main.sass'])
+  return gulp.src(['assets/sass/sass-main.sass', 'assets/scss/scss-main.scss'])
   .pipe( plumber() )
   .pipe( sourcemaps.init() )
   .pipe( sass({
@@ -103,7 +103,8 @@ Jade
 gulp.task('jade', function(){
   return gulp.src( '_jade/*.jade' )
   .pipe( jade() )
-  .pipe( gulp.dest('_includes') );
+  .pipe( gulp.dest('_includes') )
+  .pipe( browserSync.reload({stream:true}) );
 });
 
 /*---------------
@@ -119,6 +120,7 @@ gulp.task('images', function() {
       svgoPlugins: [{cleanupIDs: false}]
     }) ) )
     .pipe( gulp.dest('_site/images') )
+    .pipe( browserSync.reload({stream:true}) )
     .pipe( gulp.dest('assets/images') );
 });
 
@@ -130,11 +132,11 @@ Watch
 * Watch html/md files, run jekyll & reload BrowserSync
 */
 gulp.task('watch', function () {
-  gulp.watch('assets/scss/*.scss', ['sass']);
+  gulp.watch(['assets/scss/**/*.scss', 'assets/sass/**/*.sass'], ['sass']);
   gulp.watch('assets/js/**/*.js', ['scripts']);
   gulp.watch('_jade/*.jade', ['jade']);
   gulp.watch('assets/images/**/*', ['images']);
-  gulp.watch(['*.html', '_layouts/*.html', '_posts/*'], ['jekyll-rebuild']);
+  gulp.watch(['*.html', '_layouts/*.html', '_includes/*.html', '_posts/*', 'assets/**/*'], ['jekyll-rebuild']);
 });
 
 /*---------------
