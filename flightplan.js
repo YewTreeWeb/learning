@@ -3,9 +3,10 @@ var plan = require('flightplan');
 // configuration
 plan.target('production', [
   {
-    host: 'shell.gridhost.com',
+    host: 'shell.gridhost.co.uk',
     username: 'yewtreew1',
     port: 22,
+    privateKey: '/Users/Mat/.ssh/new-key',
     agent: process.env.SSH_AUTH_SOCK
   },
 ]);
