@@ -103,7 +103,7 @@ Jade
 gulp.task('jade', function(){
   return gulp.src( '_jade/*.jade' )
   .pipe( jade() )
-  .pipe( gulp.dest('includes') );
+  .pipe( gulp.dest('_includes') );
 });
 
 /*---------------
