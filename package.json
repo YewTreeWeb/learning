@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Shane Osbourne",
+  "author": "Mathew Teague",
   "license": "ISC",
   "devDependencies": {
     "bower": "^1.7.9",
