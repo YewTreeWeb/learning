@@ -1,8 +1,23 @@
 header#header.container-fluid
   .container
-    .row
-      .col-xs-12
-        h1.title
-          a(href="{{site.baseurl}}/") {{ site.title }}
-        p.lead lead
-        nav
+  
+    .jumbotron
+      h1 Learning the web!
+      p.lead ...because everybody needs a place to learn.
+      
+    nav.navbar.navbar-inverse
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle(type="button", data-toggle="collapse", data-target="#navbar", aria-expanded="false", aria-controls="navbar")
+          
+            span.sr-only Toggle navigation
+            - var x = 3;
+            - for (var i=1; i<=x; i++){
+              span.icon-bar
+            - }
+            
+        #navbar.navbar-collapse.collapse
+          ul.nav.navbar-nav
+      
+            li: a(href="{{ site.baseurl }}{% link index.html %}") Home
+            li: a(href="{{ site.baseurl }}{% link blog.html %}") Blog
