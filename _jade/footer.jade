@@ -1,19 +1,27 @@
-footer.footer.container-fluid
-  .container: .row: .col-xs-12
-    .contact
-      p 
-        | Your Name is 
-        br 
-        | What You Are 
-        br
-        | you@example.com 
-        | ahhhhh!
-      
-    .contact
-      p: a(href="https://github.com/yourusername") github.com/yourusername
-      p: a(href="https://twitter.com/yourusername") twitter.com/yourusername
+footer#footer.container-fluid
+  .container: .row
+    .col-xs-6
+      .social
+        
+        ul.contact
+          li: a(href="https://github.com/YewTreeWeb"): i.fa.fa-github(aria-hidden="true")
+          li: a(href="https://gitlab.com/YewTreeWeb"): i.fa.fa-gitlab(aria-hidden="true")
+          li: a(href="http://yewtreeweb.uk") Me
+    .col-xs-6
+      .copyright
+        
+        .copyrightWrap
+          p 
+            {% if page.url == '/blog.html' %}
+            | The majority of all work on this website has been done from tutorials please see above for references.
+            br
+            {% else %}
+            | The majority of all work on this website has been done from tutorials for references please see my #[a(href="{{ site.baseurl }}/blog.html") blog].
+            br
+            {% endif %}
+          p Copyright &copy; {{ site.time | date: "%Y" }} by {{ site.author }}. All Rights Reserved.
           
-  script(src="{{site.baseurl}}/assets/bower_components/jquery/dist/jquery.min.js")
-  script(src="{{site.baseurl}}/assets/bower_components/jquery-migrate/jquery-migrate.min.js")
-  script(src="{{site.baseurl}}/assets/js/bootstrap.min.js")
-  script(src="{{site.baseurl}}/assets/js/main.js")
+  script(src="{{site.baseurl}}{% link /assets/bower_components/jquery/dist/jquery.min.js %}")
+  script(src="{{site.baseurl}}{% link /assets/bower_components/jquery-migrate/jquery-migrate.min.js %}")
+  script(src="{{site.baseurl}}{% link /assets/js/bootstrap.min.js %}")
+  script(src="{{site.baseurl}}{% link /assets/js/main.js %}")

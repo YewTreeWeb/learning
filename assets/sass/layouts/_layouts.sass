@@ -1,5 +1,5 @@
 /*
-  * banner
+  * header
   */
 #header
   .jumbotron
@@ -7,3 +7,59 @@
     margin: 3% auto 2%
     h1
      color: $gray !important
+/*
+  * footer
+  */
+#footer
+  position: absolute
+  bottom: 0
+  width: 100%
+  background-color: $nav-gray
+  color: $text-gray
+  padding: 2% 15px
+  @media all and (max-height: 710px)
+    position: relative
+    width: auto
+  .social
+    position: relative
+    height: 5em
+    .contact
+      position: absolute
+      bottom: 0
+      margin-bottom: 0
+      list-style: none
+      padding-left: 0
+      @supports(display: flex)
+        display: flex
+        flex-flow: row wrap
+        justify-content: flex-start
+        align-items: center
+      > li
+        display: inline-block
+        margin-left: 1em
+        font-size: $h3
+        @supports(display: flex)
+          display: flex
+        a
+          color: $text-gray
+          &:hover, &:active, &:focus
+            color: $white
+            text-decoration: none
+  .copyright
+    .copyrightWrap
+      margin-top: 1.5%
+      p
+        font-size: $font-sm
+        > a
+          color: $gray-light
+          text-decoration: underline
+          &:hover, &:active, &:focus
+            color: $white
+/*
+  * global
+  */
+
+:focus
+  outline: none !important
+button
+  text-transform: uppercase

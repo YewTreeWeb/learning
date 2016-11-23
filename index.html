@@ -1,14 +1,36 @@
 ---
 layout: default
-title: Learning
+title: Learning the web!
 description: home
 ---
 
-<div id="home" class="test">
-  <h1>Blog Posts ipsum</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-</div>
+<section id="home">
+
+  <div id="learningSections" class="row">
+    <div class="subjects col-lg-3 col-md-4 col-xs-6">
+      <div class="subWrap">
+        <h3 class="subTitle">JavaScript</h3>
+        <a href="{{ site.baseurl }}{% link subjects/js.html %}"><button class="btn btn-danger" type="button" role="button">View</button></a>
+      </div>
+    </div>
+    <div class="subjects col-lg-3 col-md-4 col-xs-6">
+      <div class="subWrap">
+        <h3 class="subTitle">Styling</h3>
+        <a href="{{ site.baseurl }}{% link subjects/style.html %}"><button class="btn btn-danger" type="button" role="button">View</button></a>
+      </div>
+    </div>
+    <div class="subjects col-lg-3 col-md-4 col-xs-6">
+      <div class="subWrap">
+        <h3 class="subTitle">PHP</h3>
+        <a href="{{ site.baseurl }}{% link subjects/php.html %}"><button class="btn btn-danger" type="button" role="button">View</button></a>
+      </div>
+    </div>
+    <div class="subjects col-lg-3 col-md-4 col-xs-6">
+      <div class="subWrap">
+        <h3 class="subTitle">Animation</h3>
+        <a href="{{ site.baseurl }}{% link subjects/animations.html %}"><button class="btn btn-danger" type="button" role="button">View</button></a>
+      </div>
+    </div>
+  </div>
+
+</section>
