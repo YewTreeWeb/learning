@@ -16,7 +16,4 @@ header#header.container-fluid
             - }
             
         #navbar.navbar-collapse.collapse
-          ul.nav.navbar-nav
-      
-            li: a(href="{{ site.baseurl }}{% link index.html %}") Home
-            li: a(href="{{ site.baseurl }}{% link blog.html %}") Blog
+          {% include nav.html %}

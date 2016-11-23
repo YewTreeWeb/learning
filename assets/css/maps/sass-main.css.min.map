@@ -1,1 +1,1 @@
-{"version":3,"sources":["pages/_pages.sass"],"names":[],"mappings":"AAAA,KACE,2BAA6B,CAAG,GAEhC,qBAAuB,CAAG","file":"../sass-main.css","sourcesContent":["body {\n  background: white !important; }\nh1 {\n  color: blue !important; }\n"]}
+{"version":3,"sources":["layouts/_layouts.sass"],"names":[],"mappings":"AAGA,mBAEI,kBACA,iBAAmB,CAHvB,sBAKK,qBAAuB,CAAG","file":"../sass-main.css","sourcesContent":["/*\n  * banner\n  */\n#header {\n  .jumbotron {\n    text-align: center;\n    margin: 3% auto 2%;\n    h1 {\n     color: $gray !important; } } }\n"]}
