@@ -3,7 +3,13 @@ header#header.container-fluid
   
     .jumbotron
       h1 {{ page.title }}
-      p.lead ...because everybody needs a place to learn.
+      p.lead
+        {% if page.url == "/blog.html" %}
+        |...for when you need help.
+        {% else %}
+        |...because everybody needs a place to learn.
+        {% endif %}
+        
     nav.navbar.navbar-inverse
       .container-fluid
         .navbar-header
