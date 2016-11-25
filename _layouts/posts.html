@@ -1,0 +1,31 @@
+<!-----------------
+Include header
+------------------>
+{% include head.html %}
+{% include header.html %}
+
+<!-----------------
+Content
+------------------>
+<div class="container-fluid">
+  <div class="container">
+    <div class="row">
+      <div id="blog" class="col-xs-12">
+
+        <div class="singlePost">
+          {{ content }}
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<!-----------------
+End Content
+------------------>
+
+<!-----------------
+Include Footer
+------------------>
+{% include footer.html %}
+{% include end.html %}

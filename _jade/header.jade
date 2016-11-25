@@ -2,9 +2,13 @@ header#header.container-fluid
   .container
   
     .jumbotron
+      {% if page.path contains '_posts' %}
+      h1 Useful links
+      {% else %}
       h1 {{ page.title }}
+      {% endif %}
       p.lead
-        {% if page.url == "/blog.html" %}
+        {% if page.url == "/blog.html" or page.path contains '_posts' %}
         |...for when you need help.
         {% else %}
         |...because everybody needs a place to learn.

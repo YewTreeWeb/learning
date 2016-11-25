@@ -18,6 +18,8 @@ description: This is a site for me to learn and practice coding.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://example.com" # the base hostname & protocol for your site
 author: Mathew Teague
+paginate: 5
+paginate_path: "/blog/page:num/"
 
 # Build settings
 markdown: kramdown
@@ -27,3 +29,4 @@ exclude: ["node_modules", "gulpfile.js", "package.json"]
 # Plugins
 gems:
   - jekyll-seo-tag
+  - jekyll-paginate

@@ -1,4 +1,4 @@
-<header id="header" class="container-fluid"><div class="container"><div class="jumbotron"><h1>{{ page.title }}</h1><p class="lead">{% if page.url == "/blog.html" %}
+<header id="header" class="container-fluid"><div class="container"><div class="jumbotron">{% if page.path contains '_posts' %}<h1>Useful links</h1>{% else %}<h1>{{ page.title }}</h1>{% endif %}<p class="lead">{% if page.url == "/blog.html" or page.path contains '_posts' %}
 ...for when you need help.
 {% else %}
 ...because everybody needs a place to learn.
