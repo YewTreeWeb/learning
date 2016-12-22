@@ -2,7 +2,6 @@
 layout: post
 title:  "Bash Profile Examples"
 date:   2016-12-15 23:46:00
-categories: bash
 tags: [bash]
 ---
 To create a bash profile, make sure your in the root directory of your terminal and do:

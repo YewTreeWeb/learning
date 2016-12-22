@@ -2,7 +2,6 @@
 layout: post
 title:  "Flightplan.js"
 date:   2016-12-15 23:37:00
-categories: development
 tags: [flightplan, development, js]
 ---
 Run sequences of shell commands against local and remote hosts. It deploys changes using rsync to your remote server really quickly.

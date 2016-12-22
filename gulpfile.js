@@ -136,7 +136,7 @@ gulp.task('watch', function () {
   gulp.watch('assets/js/**/*.js', ['scripts']);
   gulp.watch('_jade/*.jade', ['jade']);
   gulp.watch('assets/images/**/*', ['images']);
-  gulp.watch(['*.html', '_layouts/*.html', '_includes/*.html', '_posts/*', 'assets/**/*'], ['jekyll-rebuild']);
+  gulp.watch(['*.html', '_layouts/*.html', '_includes/*.html', '_posts/*', 'subjects/*.html', 'assets/**/*'], ['jekyll-rebuild']);
 });
 
 /*---------------

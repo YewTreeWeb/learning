@@ -1,0 +1,46 @@
+---
+layout: default
+title: JavaScript Resources
+description: JavaScript resources
+---
+<div class="js-resources row">
+  {% for js in site.categories.js %}
+   <li>
+     <span>{{ js.date | date_to_string }}</span>
+     <a href="{{ js.url }}">{{ js.title }}</a>
+     <p>{{ js.excerpt }}</p>
+   </li>
+  {% endfor %}
+</div>
+
+{% comment %}
+<div class="row">
+  <div class="col-xs-12">
+    {% if paginator.total_pages > 1 %}
+    <div class="pagination">
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
+      {% else %}
+        <span>&laquo; Prev</span>
+      {% endif %}
+
+      {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page %}
+          <em>{{ page }}</em>
+        {% elsif page == 1 %}
+          <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
+        {% else %}
+          <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+        {% endif %}
+      {% endfor %}
+
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
+      {% else %}
+        <span>Next &raquo;</span>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endcomment %}

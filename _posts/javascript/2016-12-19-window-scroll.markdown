@@ -1,0 +1,31 @@
+---
+layout: post
+title:  "Window Scroll"
+date:   2016-12-19 09:11:03
+categories: js
+tags: [beginner, input, events]
+---
+<div class="row">
+  <div class="col-xs-12">
+
+    {% highlight ruby %}
+      $(window).scroll(function(){
+
+        var wScroll = $(this).scrollTop();
+
+          if( wScroll > $('#section1').offset().top - ($(window).height() / 5.5) ){
+
+          $('nav').addClass('nav-appear');
+
+        }
+        else {
+
+          $('nav').removeClass('nav-appear');
+
+        }
+
+      });
+    {% endhighlight %}
+
+  </div>
+</div>
