@@ -7,30 +7,19 @@ description: home
 <section id="home">
 
   <div id="learningSections" class="row">
-    <div class="subjects col-lg-3 col-md-4 col-xs-6">
-      <div class="subWrap">
-        <h3 class="subTitle">JavaScript</h3>
-        <a href="{{ site.baseurl }}{% link subjects/js.html %}"><button class="btn btn-danger" type="button" role="button">View</button></a>
+    {% for subjects in site.pages %}
+      {% if subjects.type == 'subject' %}
+
+      <div class="subjects col-lg-3 col-md-4 col-xs-6">
+        <div class="subWrap">
+          <h3 class="subTitle">{{ subjects.title | split: 'Resources' }}</h3>
+          <a href="{{ site.baseurl }}{{ subjects.url }}"><button class="btn btn-danger" type="button" role="button">View</button></a>
+        </div>
       </div>
-    </div>
-    <div class="subjects col-lg-3 col-md-4 col-xs-6">
-      <div class="subWrap">
-        <h3 class="subTitle">Styling</h3>
-        <a href="{{ site.baseurl }}subjects/style.html"><button class="btn btn-danger" type="button" role="button">View</button></a>
-      </div>
-    </div>
-    <div class="subjects col-lg-3 col-md-4 col-xs-6">
-      <div class="subWrap">
-        <h3 class="subTitle">PHP</h3>
-        <a href="{{ site.baseurl }}{% link subjects/php.html %}"><button class="btn btn-danger" type="button" role="button">View</button></a>
-      </div>
-    </div>
-    <div class="subjects col-lg-3 col-md-4 col-xs-6">
-      <div class="subWrap">
-        <h3 class="subTitle">Animation</h3>
-        <a href="{{ site.baseurl }}{% link subjects/animations.html %}"><button class="btn btn-danger" type="button" role="button">View</button></a>
-      </div>
-    </div>
+
+      {% endif %}
+    {% endfor %}
   </div>
+
 
 </section>

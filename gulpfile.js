@@ -22,6 +22,22 @@ var messages = {
 };
 
 /*---------------
+Error notification
+---------------*/
+function handleErrors() {
+  var args = Array.prototype.slice.call(arguments);
+
+  // Send error to notification center with gulp-notify
+  notify.onError({
+    title: "Compile Error",
+    message: "<%= error %>"
+  }).apply(this, args);
+
+  // Keep gulp from hanging on this task
+  this.emit('end');
+}
+
+/*---------------
 Jekyll
 ---------------*/
 /**
@@ -69,7 +85,7 @@ gulp.task('sass', function () {
     //includePaths: ['scss'],
     outputStyle: 'compressed',
     onError: browserSync.notify
-  }).on('error', sass.logError) )
+  }).on('error', handleErrors) )
   .pipe( prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }) )
   .pipe( sourcemaps.write('maps') )
   .pipe( rename( {suffix:'.min'} ) )
@@ -88,8 +104,8 @@ gulp.task('scripts', function() {
   return gulp.src(['assets/js/**/*.js', '!assets/js/**/*.min.js'])
   .pipe( plumber() )
   .pipe( sourcemaps.init() )
-  .pipe( babel() )
-  .pipe( uglify() )
+  .pipe( babel().on('error', handleErrors) )
+  .pipe( uglify().on('error', handleErrors) )
   .pipe( sourcemaps.write('maps') )
   .pipe( rename( {suffix:'.min'} ) )
   .pipe( gulp.dest('_site/js') )
@@ -136,7 +152,7 @@ gulp.task('watch', function () {
   gulp.watch('assets/js/**/*.js', ['scripts']);
   gulp.watch('_jade/*.jade', ['jade']);
   gulp.watch('assets/images/**/*', ['images']);
-  gulp.watch(['*.html', '_layouts/*.html', '_includes/*.html', '_posts/*', 'subjects/*.html', 'assets/**/*'], ['jekyll-rebuild']);
+  gulp.watch(['*.html', '_layouts/*.html', '_includes/*.html', '_posts/**/*', 'subjects/**/*.html', 'assets/**/*'], ['jekyll-rebuild']);
 });
 
 /*---------------

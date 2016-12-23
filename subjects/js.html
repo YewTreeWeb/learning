@@ -2,15 +2,21 @@
 layout: default
 title: JavaScript Resources
 description: JavaScript resources
+type: subject
 ---
 <div class="js-resources row">
-  {% for js in site.categories.js %}
-   <li>
-     <span>{{ js.date | date_to_string }}</span>
-     <a href="{{ js.url }}">{{ js.title }}</a>
-     <p>{{ js.excerpt }}</p>
-   </li>
+  <ul>
+  {% for js in site.pages %}
+    {% if js.section == "js" %}
+
+    <li>
+      <a href="{{ js.url }}">{{ js.title }}</a>
+      <p>{{ js.excerpt }}</p>
+    </li>
+
+    {% endif %}
   {% endfor %}
+  </ul>
 </div>
 
 {% comment %}

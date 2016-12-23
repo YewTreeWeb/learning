@@ -1,0 +1,9 @@
+<ul class="dropdown-menu submenu">
+  {% for page in site.pages %}
+    {% if page.type == "subject" %}
+
+      <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title | split: "Resources" }}</a></li>
+
+    {% endif %}
+  {% endfor %}
+</ul>
