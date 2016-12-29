@@ -1,9 +1,11 @@
 <ul class="dropdown-menu submenu">
-  {% for page in site.pages %}
-    {% if page.type == "subject" %}
-
-      <li><a href="{{ site.baseurl }}{{ page.url }}">{{ page.title | split: "Resources" }}</a></li>
-
+  {% for subnav in site.pages %}
+  {% if subnav.type == "subject" %}
+    {% if page.url == subnav.url or page.url contains "subject" %}
+      <li class="active"><a href="{{node.url}}" class="active">{{ subnav.title | split: "Resources" | lstrip }}</a></li>
+    {% else %}
+      <li><a href="{{subnav.url}}">{{ subnav.title | split: "Resources" | lstrip }}</a></li>
     {% endif %}
-  {% endfor %}
+  {% endif %}
+{% endfor %}
 </ul>

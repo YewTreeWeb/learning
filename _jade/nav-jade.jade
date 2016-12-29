@@ -1,0 +1,10 @@
+ul.nav.navbar-nav
+  li {% if page.url == "/" %}.active{% endif %}
+    a(href="{{ site.baseurl }}/index.html") Home
+  li.dropdown
+    a.dropdown-toggle(href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false")
+    Practise Code
+    span.caret
+    {% include submenu.html %}
+  li {% if page.url == "/blog.html" or page.path contains '_posts' %}.active{% endif %}
+    a(href="{{ site.baseurl }}/blog.html") Blog

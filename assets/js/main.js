@@ -1,36 +1,54 @@
-console.log('hello world');
-console.log('testing');
-/*
+/*-- Boostrap JS --*/
 
-User Input - Hide/Show images
+$(function(){
 
-*/
-var alice = document.getElementById('alice');
-var me = document.getElementById('me');
-var mum = document.getElementById('mum');
-var dad = document.getElementById('dad');
+  $('img').addClass('img-responsive');
+  $('iframe').parent().addClass('embed-responsive embed-responsive-16by9');
+  $('iframe').addClass('embed-responsive-item');
+  $('.carousel').carousel({
+    interval: 6000,
+    pause: "hover"
+  });
 
-alice.addEventListener('click', picLink);
-me.addEventListener('click', picLink);
-mum.addEventListener('click', picLink);
-dad.addEventListener('click', picLink);
+  $('.carousel-inner').children('.item:first-child').addClass('active');
 
-function picLink(){
+  $('.slide').each(function(i) {
+    $(this).attr('id', 'id_' + i).appendTo(this);
+    $('a.left.carousel-control').attr('href', '#id_' + i);
+    $('a.right.carousel-control').attr('href', '#id_' + i);
+  });
 
-  var allImages = document.querySelectorAll("img");
+  $('.carousel-indicators > li').first().addClass('active');
 
-  for (var i = 0; i < allImages.length; i++){
-    allImages[i].className = "hide";
+  $('.carousel-inner').each(function() {
+    if ($(this).children('.item').length === 1) {
+      $('.carousel-control').remove();
+    }
+  });
+
+});
+
+/*-- custom JS --*/
+
+$(function(){
+
+  $('a.smooth').click(function() {
+    if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+  if( $('.submenu > li').hasClass('active') ){
+    var $this = $(this);
+
+    console.log('this');
+    $('.submenu').addClass('test');
   }
 
-  var picId = this.attributes["data-img"].value;
-  var pic = document.getElementById(picId);
-
-  if (pic.className === "hide") {
-    pic.className = "show";
-  }
-  else {
-    pic.className = "hide";
-  }
-
-}
+});
