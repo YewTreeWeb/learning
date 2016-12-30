@@ -47,8 +47,7 @@ $(function(){
   if( $('.submenu > li').hasClass('active') ){
     var $this = $(this);
 
-    console.log('this');
-    $('.submenu').addClass('test');
+    $('.submenu').addClass('active');
   }
 
 });

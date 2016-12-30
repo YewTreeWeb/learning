@@ -5,18 +5,18 @@ description: JavaScript resources
 type: subject
 ---
 <div class="js-resources row">
-  <ul>
   {% for js in site.pages %}
     {% if js.section == "js" %}
 
-    <li>
-      <a href="{{ js.url }}">{{ js.title }}</a>
-      <p>{{ js.excerpt }}</p>
-    </li>
+    <div class="subjects col-lg-3 col-md-4 col-xs-6">
+      <div class="subWrap">
+        <a href="{{ js.url }}">{{ js.title }}</a>
+        <p>{{ js.excerpt }}</p>
+      </div>
+    </div>
 
     {% endif %}
   {% endfor %}
-  </ul>
 </div>
 
 {% comment %}
