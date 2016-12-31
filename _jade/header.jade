@@ -10,6 +10,8 @@ header#header.container-fluid
       p.lead
         {% if page.url == "/blog.html" or page.path contains '_posts' %}
         |...for when you need help.
+        {% elsif page.section or page.type %}
+        |...into the lab
         {% else %}
         |...because everybody needs a place to learn.
         {% endif %}

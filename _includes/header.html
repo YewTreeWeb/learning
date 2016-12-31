@@ -1,5 +1,7 @@
 <header id="header" class="container-fluid"><div class="container"><div class="jumbotron">{% if page.path contains '_posts' %}<h1>Useful links</h1>{% else %}<h1>{{ page.title }}</h1>{% endif %}<p class="lead">{% if page.url == "/blog.html" or page.path contains '_posts' %}
 ...for when you need help.
+{% elsif page.section or page.type %}
+...into the lab
 {% else %}
 ...because everybody needs a place to learn.
 {% endif %}</p></div><nav class="navbar navbar-inverse"><div class="container-fluid"><div class="navbar-header"><button type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div><div id="navbar" class="navbar-collapse collapse">{% include nav.html %}</div></div></nav></div></header>

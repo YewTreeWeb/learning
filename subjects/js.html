@@ -4,14 +4,15 @@ title: JavaScript Resources
 description: JavaScript resources
 type: subject
 ---
-<div class="js-resources row">
+<div class="resources row">
   {% for js in site.pages %}
     {% if js.section == "js" %}
 
     <div class="subjects col-lg-3 col-md-4 col-xs-6">
       <div class="subWrap">
-        <a href="{{ js.url }}">{{ js.title }}</a>
+        <h4>{{ js.title }}</h4>
         <p>{{ js.excerpt }}</p>
+        <a href="{{ site.baseurl }}{{ js.url }}"><button class="btn btn-danger" type="button" role="button">View More</button></a>
       </div>
     </div>
 
